@@ -71,7 +71,6 @@
 
     #finalMessage {
       display: none;
-      font-size: 40px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -88,7 +87,39 @@
 
 <button id="btnStart">Iniciar</button>
 
-<div id="finalMessage">✨ ¡Mensaje final en el universo! ✨</div>
+<div id="finalMessage">
+    <h1>Mi pequeño universo</h1>
+    <p>En el silencio tibio de la noche,
+        cuando el mundo duerme y todo se calma,
+        hay un rincón en mi pecho
+        donde tu nombre brilla
+        como una estrella que nunca se apaga.
+        <br><br>
+        Tú eres el suspiro que despierta mi alma,
+        la nota dulce en cada pensamiento,
+        la caricia que llega sin tocar,
+        la luz que guía mis pasos
+        aunque cierre los ojos.
+        <br><br>
+        Si el universo es infinito,
+        entonces mi amor por ti también lo es:
+        crece, late, respira…
+        como una constelación que se expande
+        cada vez que te recuerdo.
+        <br><br>
+        Y si alguna vez dudas,
+        solo mira al cielo.
+        Ahí estaré —
+        no como estrella,
+        sino como la razón por la que brillan.
+        <br><br>
+        Porque en cada latido,
+        en cada pequeño instante,
+        mi corazón escribe tu nombre
+        como un poema que
+        nunca termina.
+    </p>
+</div>
 
 <script>
       function createUniverse() {
@@ -119,7 +150,6 @@
     "Mi corazón de melocotón", 
     "Mi príncipe", 
     "Te amo",
-    "<img src='./foto1.jpeg'>",
     "Mi amorcito",
     "Mi futuro esposo",
     "<img src='./foto1.jpeg'>",
@@ -131,12 +161,14 @@
     "Mi ojitos lindos",
     "Sonrisa hermosa",
     "Mi novio",
+    "💚", "💜", "💖", "💙", 
     "Mi futuro",
     "<img src='./foto3.jpeg'>",
     "Mi presente",
     "Me gustas",
     "Me gustas",
     "<img src='./foto4.jpeg'>",
+    "💚", "💜", "💖", "💙", 
     "Me encantas",
     "Estoy enamorada",
     "<img src='./foto5.jpeg'>",
@@ -144,6 +176,7 @@
     "Tu mirada",
     "Tu forma de ser",
     "<img src='./foto6.jpeg'>",
+    "💚", "💜", "💖", "💙", 
     "Mi vida",
     "Lo mejor que me ha pasado",
     "Mi sonrisa perfecta",
@@ -151,10 +184,12 @@
     "Mi corazón",
     "<img src='./foto7.jpeg'>",
     "Mi luna",
+    "💚", "💜", "💖", "💙", 
     "Tu eres todo lo que quiero",
     "Te necesito",
     "Te extraño",
     "Te adoro",
+    "💚", "💜", "💖", "💙", 
     "<img src='./foto8.jpeg'>",
   ];
 
@@ -162,7 +197,7 @@
     const button = document.getElementById('btnStart');
     button.style.display = "none";
 
-    const duration = 30000; // 30 segundos
+    const duration = 30000;
     const endTime = Date.now() + duration;
 
     function createItem() {
@@ -171,35 +206,27 @@
       const element = document.createElement("div");
       element.classList.add("item");
 
-      // contenido
       element.innerHTML = items[Math.floor(Math.random() * items.length)];
 
-      // tamaño aleatorio
       element.style.fontSize = (20 + Math.random()*40) + "px";
 
-      // opacidad aleatoria
       element.style.opacity = 0.7 + Math.random()*0.3;
 
-      // espacio alrededor para que no se monten
       element.style.padding = "10px";
 
-      // posición X aleatoria
       element.style.left = Math.random() * (window.innerWidth - 100) + "px";
 
-      // velocidad diferente
       element.style.animationDuration = (3 + Math.random() * 4) + "s";
 
       document.body.appendChild(element);
 
       setTimeout(() => element.remove(), 6000);
 
-      // Crear un elemento cada 250–400 ms → Ya no se amontonan
       setTimeout(createItem, 250 + Math.random()*150);
     }
 
     createItem();
 
-    // Mostrar mensaje final después del tiempo
     setTimeout(() => {
       document.getElementById("finalMessage").style.display = "block";
     }, duration);
